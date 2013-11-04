@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+
+  <Identity Name="a511da2f-2c9f-4d50-8854-bb1b2aba5a62"
+            Publisher="CN=Brian"
+            Version="1.0.0.0" />
+
+  <Properties>
+    <DisplayName>Lego.Ev3.Tester.WinRTCPP</DisplayName>
+    <PublisherDisplayName>Brian</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+        Executable="$targetnametoken$.exe"
+        EntryPoint="Lego_Ev3_Tester_WinRTCPP.App">
+        <m2:VisualElements
+            DisplayName="Lego.Ev3.Tester.WinRTCPP"
+            Square150x150Logo="Assets\Logo.png"
+            Square30x30Logo="Assets\SmallLogo.png"
+            Description="Lego.Ev3.Tester.WinRTCPP"
+            ForegroundText="light"
+            BackgroundColor="#464646">
+            <m2:SplashScreen Image="Assets\SplashScreen.png" />
+        </m2:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+	  <Capability Name="privateNetworkClientServer" />
+	  <m2:DeviceCapability Name="bluetooth.rfcomm">
+		  <m2:Device Id="any">
+			  <m2:Function Type="name:serialPort" />
+		  </m2:Device>
+	  </m2:DeviceCapability>
+	  <m2:DeviceCapability Name="humaninterfacedevice">
+		  <m2:Device Id="vidpid:0694 0005">
+			  <m2:Function Type="usage:ff00 0001" />
+		  </m2:Device>
+	  </m2:DeviceCapability>
+  </Capabilities>
+</Package>

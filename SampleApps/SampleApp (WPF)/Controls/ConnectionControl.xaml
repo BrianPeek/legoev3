@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="SampleApp.Controls.ConnectionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:converters="clr-namespace:SampleApp.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+	<UserControl.Resources>
+		<converters:IndexToVisibilityConverter x:Key="IntToVis" />
+	</UserControl.Resources>
+	<Grid>
+		<Rectangle Fill="#ccc" Opacity=".85" />
+		<Border Padding="15" Background="#111"  VerticalAlignment="Top">
+			<StackPanel>
+				<TextBlock
+					Foreground="White"
+					FontSize="32"
+					Margin="0, 0, 0, 10">
+					<Run Text="Connection Type"/>
+				</TextBlock>
+
+				
+				<ComboBox
+					Margin="0, 0, 0, 20" 
+					x:Name="ConnectionTypeStyle" 
+					SelectedIndex="0">
+					<system:String>usb</system:String>
+					<system:String>bluetooth</system:String>
+					<system:String>wifi</system:String>
+				</ComboBox>
+
+				<StackPanel 
+					Visibility="{Binding SelectedIndex,
+					ConverterParameter=1, 
+					Converter={StaticResource IntToVis},
+					ElementName=ConnectionTypeStyle}">
+					<Grid>
+						<TextBlock 
+							HorizontalAlignment="Left">
+							<Run Text="Comport #"/>
+						</TextBlock>
+					</Grid>
+					<TextBox x:Name="ComportNumber" Text="1" />
+				</StackPanel>
+				
+				<StackPanel 
+					Visibility="{Binding SelectedIndex,
+					ConverterParameter=2, 
+					Converter={StaticResource IntToVis},
+					ElementName=ConnectionTypeStyle}">
+					<Grid>
+						<TextBlock 
+							HorizontalAlignment="Left">
+							<Run Text="IP address"/>
+						</TextBlock>
+					</Grid>
+					<TextBox x:Name="IpAddress" Text="192.168.1.10" />
+				</StackPanel>
+
+				<Button Click="RoundButton_Click">ok</Button>
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>

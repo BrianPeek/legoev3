@@ -1,0 +1,55 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    
+    xmlns:c4f="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
+    xmlns:converters="clr-namespace:SampleApp.Converters"
+    x:Class="SampleApp.Controls.ConnectionControl"
+	mc:Ignorable="d">
+
+	<UserControl.Resources>
+		<converters:IndexToVisibilityConverter x:Name="IntToVis" />
+	</UserControl.Resources>
+	<Grid>
+		<Rectangle Fill="#ccc" Opacity=".85" />
+		<Border Padding="15" Background="#111"  VerticalAlignment="Top">
+			<StackPanel>
+				<TextBlock
+					Foreground="White"
+					FontSize="32"
+					Margin="0, 0, 0, 10">
+					<Run Text="Connection Type"/>
+				</TextBlock>
+
+				<toolkit:ListPicker
+					Margin="0, 0, 0, 20" 
+					x:Name="ConnectionTypeStyle">
+					<system:String>bluetooth</system:String>
+					<system:String>wifi</system:String>
+				</toolkit:ListPicker>
+
+				<StackPanel 
+					Visibility="{Binding SelectedIndex,
+					ConverterParameter=1, 
+					Converter={StaticResource IntToVis},
+					ElementName=ConnectionTypeStyle}">
+					<Grid>
+						<TextBlock 
+							HorizontalAlignment="Left">
+							<Run Text="IP address"/>
+						</TextBlock>
+					</Grid>
+					<TextBox x:Name="IpAddress" Text="192.168.1.10" />
+				</StackPanel>
+				
+				<c4f:RoundButton 
+					Label="connect" 
+					Click="RoundButton_Click" />
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>

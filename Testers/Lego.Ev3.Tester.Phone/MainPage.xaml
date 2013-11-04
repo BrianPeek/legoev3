@@ -1,0 +1,97 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Lego.Ev3.Tester.Phone.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- LOCALIZATION NOTE:
+            To localize the displayed strings copy their values to appropriately named
+            keys in the app's neutral language resource file (AppResources.resx) then
+            replace the hard-coded text value between the attributes' quotation marks
+            with the binding clause whose path points to that string name.
+
+            For example:
+
+                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+
+            This binding points to the template's string resource named "ApplicationTitle".
+
+            Adding supported languages in the Project Properties tab will create a
+            new resx file per language that can carry the translated values of your
+            UI strings. The binding in these examples will cause the value of the
+            attributes to be drawn from the .resx file that matches the
+            CurrentUICulture of the app at run time.
+         -->
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+		<ScrollViewer Grid.Row="1">
+			<StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<ComboBox x:Name="Ports"/>
+				<Button x:Name="Connect" Click="Connect_Click">Connect</Button>
+				<Button x:Name="Disconnect" Click="Disconnect_Click">Disconnect</Button>
+			</StackPanel>
+				<TextBox x:Name="Output"/>
+				<Button x:Name="PlayTone" Click="PlayTone_Click">Play Tone</Button>
+				<Button x:Name="GetFirmwareVersion" Click="GetFirmwareVersion_Click">Get FW Version</Button>
+				<Button x:Name="TurnMotorPower" Click="TurnMotorPower_Click">Turn Motor at Power</Button>
+				<Button x:Name="TurnMotorSpeed" Click="TurnMotorSpeed_Click">Turn Motor at Speed</Button>
+				<Button x:Name="StepMotorPower" Click="StepMotorPower_Click">Step Motor at Power</Button>
+				<Button x:Name="StepMotorSpeed" Click="StepMotorSpeed_Click">Step Motor at Speed</Button>
+				<Button x:Name="TimeMotorPower" Click="TimeMotorPower_Click">Time Motor at Power</Button>
+				<Button x:Name="TimeMotorSpeed" Click="TimeMotorSpeed_Click">Time Motor at Speed</Button>
+				<Button x:Name="StopMotor" Click="StopMotor_Click">Stop Motor</Button>
+				<Button x:Name="SetLed" Click="SetLed_Click">Set LED</Button>
+				<Button x:Name="PlaySound" Click="PlaySound_Click">Upload and Play Sound</Button>
+				<Button x:Name="Draw" Click="Draw_Click">Draw on LCD</Button>
+
+				<Button x:Name="BatchNoReply" Click="BatchNoReply_Click">Batch with No Reply</Button>
+				<Button x:Name="BatchReply" Click="BatchReply_Click">Batch with Reply</Button>
+			<ListBox x:Name="InputPorts" ItemsSource="{Binding}">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock>
+							<Run Text="InputPort: "/><Run Text="{Binding Key}"/>
+							<Run Text=", Type: "/><Run Text="{Binding Value.Type}"/>
+							<Run Text=", Mode: "/><Run Text="{Binding Value.Mode}"/>
+							<Run Text=", Value: "/><Run Text="{Binding Value.SIValue}"/>
+							</TextBlock>
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</StackPanel>
+		</ScrollViewer>
+		<!--Uncomment to see an alignment grid to help ensure your controls are
+            aligned on common boundaries.  The image has a top margin of -32px to
+            account for the System Tray. Set this to 0 (or remove the margin altogether)
+            if the System Tray is hidden.
+
+            Before shipping remove this XAML and the image itself.-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+    </Grid>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{79C444DE-86F1-4AFF-903A-4B6ED31655EA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lego.Ev3</RootNamespace>
+    <AssemblyName>Lego.Ev3.Desktop</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Lego.Ev3.Desktop.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Lego.Ev3.Desktop.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Lego.Ev3.Core\Brick.cs">
+      <Link>Core\Brick.cs</Link>
+    </Compile>
+    <Compile Include="..\Lego.Ev3.Core\BrickButtons.cs">
+      <Link>Core\BrickButtons.cs</Link>
+    </Compile>
+    <Compile Include="..\Lego.Ev3.Core\BrickChangedEventArgs.cs">
+      <Link>Core\BrickChangedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\Lego.Ev3.Core\Command.cs">
+      <Link>Core\Command.cs</Link>
+    </Compile>
+    <Compile Include="..\Lego.Ev3.Core\DataReceivedEventArgs.cs">
+      <Link>Core\DataReceivedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\Lego.Ev3.Core\DirectCommand.cs">
+      <Link>Core\DirectCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\Lego.Ev3.Core\DummyCommunication.cs">
+      <Link>Core\DummyCommunication.cs</Link>
+    </Compile>
+    <Compile Include="..\Lego.Ev3.Core\Enums.cs">
+      <Link>Core\Enums.cs</Link>
+    </Compile>
+    <Compile Include="..\Lego.Ev3.Core\ICommunication.cs">
+      <Link>Core\ICommunication.cs</Link>
+    </Compile>
+    <Compile Include="..\Lego.Ev3.Core\Port.cs">
+      <Link>Core\Port.cs</Link>
+    </Compile>
+    <Compile Include="..\Lego.Ev3.Core\Response.cs">
+      <Link>Core\Response.cs</Link>
+    </Compile>
+    <Compile Include="..\Lego.Ev3.Core\ResponseManager.cs">
+      <Link>Core\ResponseManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Lego.Ev3.Core\SystemCommand.cs">
+      <Link>Core\SystemCommand.cs</Link>
+    </Compile>
+    <Compile Include="BluetoothCommunication.cs" />
+    <Compile Include="UsbCommunication.cs" />
+    <Compile Include="HidImports.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NetworkCommunication.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lego.Ev3.Desktop", "Lego.Ev3.Desktop\Lego.Ev3.Desktop.csproj", "{79C444DE-86F1-4AFF-903A-4B6ED31655EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lego.Ev3.Tester.Wpf", "Testers\Lego.Ev3.Tester.Wpf\Lego.Ev3.Tester.Wpf.csproj", "{8E0D716B-9553-46AF-9DC0-40D28451D2C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lego.Ev3.Tester.Console", "Testers\Lego.Ev3.Tester.Console\Lego.Ev3.Tester.Console.csproj", "{BF89EB20-E0FE-4816-9680-15270E736252}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp (WPF)", "SampleApps\SampleApp (WPF)\SampleApp (WPF).csproj", "{0B140421-4421-4673-972F-7FFB6268F0DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79C444DE-86F1-4AFF-903A-4B6ED31655EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79C444DE-86F1-4AFF-903A-4B6ED31655EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79C444DE-86F1-4AFF-903A-4B6ED31655EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79C444DE-86F1-4AFF-903A-4B6ED31655EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E0D716B-9553-46AF-9DC0-40D28451D2C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E0D716B-9553-46AF-9DC0-40D28451D2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E0D716B-9553-46AF-9DC0-40D28451D2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E0D716B-9553-46AF-9DC0-40D28451D2C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF89EB20-E0FE-4816-9680-15270E736252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF89EB20-E0FE-4816-9680-15270E736252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF89EB20-E0FE-4816-9680-15270E736252}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF89EB20-E0FE-4816-9680-15270E736252}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B140421-4421-4673-972F-7FFB6268F0DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B140421-4421-4673-972F-7FFB6268F0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B140421-4421-4673-972F-7FFB6268F0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B140421-4421-4673-972F-7FFB6268F0DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

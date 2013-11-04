@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="SampleApp.Controls.SensorSettingsControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:controls="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+	<Grid x:Name="LayoutRoot">
+		<Rectangle Fill="#ccc" Opacity=".85" />
+		<Border Padding="15" Background="#111"  VerticalAlignment="Top">
+			<StackPanel>
+				<TextBlock
+						Foreground="White"
+						FontSize="{StaticResource PhoneFontSizeLarge}">
+					<Run
+						Text="Port " /><Run 
+						Text="?" 
+						x:Name="PortName" /><Run 
+						Text=" - "/><Run 
+						Text="?"
+						x:Name="ObjectName"/><Run 
+						Text=" Settings" />
+				</TextBlock>
+
+				<toolkit:ListPicker
+					Header="Sensor Style"
+					Margin="0, 0, 0, 10" 
+					Name="SensorStyle">
+					<toolkit:ListPicker.FullModeItemTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding}" Margin="0 24 24 24" TextWrapping="Wrap" Style="{StaticResource PhoneTextTitle2Style}" />
+						</DataTemplate>
+					</toolkit:ListPicker.FullModeItemTemplate>
+				</toolkit:ListPicker>
+				<controls:RoundButton 
+					Label="ok" 
+					Click="RoundButton_Click" />
+			</StackPanel>
+		</Border>
+	</Grid>
+
+</UserControl>

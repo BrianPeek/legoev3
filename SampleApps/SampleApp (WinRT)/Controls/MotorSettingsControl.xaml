@@ -1,0 +1,104 @@
+﻿<UserControl
+    x:Class="SampleApp.Controls.MotorSettingsControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Coding4Fun.Toolkit.Controls"
+    xmlns:converters="using:SampleApp.Converters"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+	<UserControl.Resources>
+		<converters:IndexToVisibilityConverter x:Name="IntToVis" />
+		<converters:MotorValueTimerConverter x:Name="MotorTimerValue" />
+		<converters:DoubleRoundedConverter x:Name="RoundValue" />
+	</UserControl.Resources>
+	<Grid x:Name="LayoutRoot">
+		<Rectangle Fill="#ccc" Opacity=".85" />
+		<Border Padding="15" Background="#111"  VerticalAlignment="Top">
+			<StackPanel>
+				<TextBlock
+					Foreground="White"
+					FontSize="30">
+					<Run
+						Text="Port " /><Run 
+						Text="?" 
+						x:Name="PortName" /><Run 
+						Text=" - "/><Run 
+						Text="?"
+						x:Name="ObjectName"/><Run 
+						Text=" Settings" />
+				</TextBlock>
+
+				<ComboBox
+					Header="Movement Style"
+					Margin="0, 0, 0, 10" 
+					x:Name="MovementStyle">
+					<ComboBoxItem>degrees</ComboBoxItem>
+					<ComboBoxItem>power</ComboBoxItem>
+				</ComboBox>
+
+				<Grid>
+					<TextBlock 
+						HorizontalAlignment="Left">
+						<Run Text="Power"/>
+					</TextBlock>
+					<TextBlock 
+						HorizontalAlignment="Right" 
+						Text="{Binding Value, ConverterParameter=0, Converter={StaticResource RoundValue}, ElementName=PowerSlider}" />
+				</Grid>
+				<Slider 
+					Margin="0, -10, 0, -30"
+					x:Name="PowerSlider"
+					Value="0" 
+					Minimum="-100"
+					Maximum="100"
+					SmallChange="1" 
+					Foreground="Transparent" />
+
+				<StackPanel 
+					Visibility="{Binding SelectedIndex, ConverterParameter=0, Converter={StaticResource IntToVis}, ElementName=MovementStyle}">
+					<Grid>
+						<TextBlock 
+							HorizontalAlignment="Left">
+							<Run Text="Degrees"/>
+						</TextBlock>
+						<TextBlock 
+							HorizontalAlignment="Right"
+							Text="{Binding Value, ConverterParameter=0, Converter={StaticResource RoundValue}, ElementName=DegreeSlider}" />
+					</Grid>
+					<Slider 
+						Margin="0, -10, 0, -20"
+						x:Name="DegreeSlider"
+						Value="0" 
+						Minimum="0"
+						Maximum="720"
+						Foreground="Transparent" />
+				</StackPanel>
+
+				<StackPanel 
+					Visibility="{Binding SelectedIndex, ConverterParameter=1, Converter={StaticResource IntToVis}, ElementName=MovementStyle}">
+
+
+					<Grid>
+						<TextBlock 
+							HorizontalAlignment="Left">
+							<Run Text="seconds"/>
+						</TextBlock>
+						<TextBlock 
+							HorizontalAlignment="Right"
+							Text="{Binding Value, Converter={StaticResource MotorTimerValue}, ElementName=PowerTimerSlider}" />
+					</Grid>
+					<Slider
+						Margin="0, -10, 0, -20"
+						x:Name="PowerTimerSlider"
+						Value="5" />
+				</StackPanel>
+				<controls:RoundButton 
+					Label="ok" 
+					Click="RoundButton_Click" />
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>
