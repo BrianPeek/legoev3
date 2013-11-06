@@ -129,7 +129,7 @@ namespace SampleApp
 					}
 					else
 					{
-						await _brick.DirectCommand.TurnMotorAtPowerForTimeAsync(output, 50, 0,  (uint) control.TimeToMoveInSeconds * 1000, 0, false);
+						await _brick.DirectCommand.TurnMotorAtPowerForTimeAsync(output, control.PowerRatingMovement, 0, (uint)control.TimeToMoveInSeconds * 1000, 0, false);
 					}
 				}
 			}
