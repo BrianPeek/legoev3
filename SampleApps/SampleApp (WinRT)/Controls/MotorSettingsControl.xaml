@@ -36,7 +36,7 @@
 					Margin="0, 0, 0, 10" 
 					x:Name="MovementStyle">
 					<ComboBoxItem>degrees</ComboBoxItem>
-					<ComboBoxItem>power</ComboBoxItem>
+					<ComboBoxItem>time</ComboBoxItem>
 				</ComboBox>
 
 				<Grid>

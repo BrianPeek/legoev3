@@ -37,7 +37,7 @@
 					Margin="0, 0, 0, 10" 
 					x:Name="MovementStyle">
 					<system:String>degrees</system:String>
-					<system:String>power</system:String>
+					<system:String>time</system:String>
 				</ComboBox>
 
 				<Grid>
