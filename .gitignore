@@ -1,0 +1,16 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SampleApps/SampleApp (Phone)/Bin/
+/Lego.Ev3.Desktop/bin/
+/Lego.Ev3.Desktop/obj/
+/Lego.Ev3.Phone/Bin/
+/Lego.Ev3.Phone/obj/
+/Lego.Ev3.WinRT/bin/
+/Lego.Ev3.WinRT/obj/
+/SampleApps/SampleApp (Phone)/obj/
+/SampleApps/SampleApp (WinRT)/bin/
+/SampleApps/SampleApp (WinRT)/obj/
+/SampleApps/SampleApp (WPF)/bin/
+/SampleApps/SampleApp (WPF)/obj/
