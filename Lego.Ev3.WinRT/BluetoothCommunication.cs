@@ -27,6 +27,24 @@ namespace Lego.Ev3.WinRT
 		private DataReader _reader;
 		private CancellationTokenSource _tokenSource;
 
+        private readonly string _deviceName;
+
+        /// <summary>
+        /// Create a new NetworkCommunication object
+        /// </summary>
+        /// <param name="device">Devicename of the EV3 brick</param>
+        public BluetoothCommunication(string device)
+        {
+            _deviceName = device;
+        }
+        /// <summary>
+        /// Create a new NetworkCommunication object
+        /// </summary>
+        public BluetoothCommunication()
+        {
+            _deviceName = "EV3";
+        }
+
 		/// <summary>
 		/// Connect to the EV3 brick.
 		/// </summary>
@@ -42,7 +60,7 @@ namespace Lego.Ev3.WinRT
 
 			string selector = RfcommDeviceService.GetDeviceSelector(RfcommServiceId.SerialPort);
 			DeviceInformationCollection devices = await DeviceInformation.FindAllAsync(selector);
-			DeviceInformation device = (from d in devices where d.Name == "EV3" select d).FirstOrDefault();
+            DeviceInformation device = (from d in devices where d.Name == _deviceName select d).FirstOrDefault();
 			if(device == null)
 				throw new Exception("EV3 not found.");
 
