@@ -25,7 +25,25 @@ namespace Lego.Ev3.Phone
 		private DataReader _reader;
 		private CancellationTokenSource _tokenSource;
 
-		/// <summary>
+        private readonly string _deviceName;
+
+        /// <summary>
+        /// Create a new NetworkCommunication object
+        /// </summary>
+        /// <param name="device">Devicename of the EV3 brick</param>
+        public BluetoothCommunication(string device)
+        {
+            _deviceName = device;
+        }
+        /// <summary>
+        /// Create a new NetworkCommunication object
+        /// </summary>
+        public BluetoothCommunication()
+        {
+            _deviceName = "EV3";
+        }
+
+        /// <summary>
 		/// Connect to the EV3 brick.
 		/// </summary>
 		/// <returns></returns>
@@ -35,9 +53,9 @@ namespace Lego.Ev3.Phone
 
 			PeerFinder.AlternateIdentities["Bluetooth:Paired"] = "";
 			IReadOnlyList<PeerInformation> peers = await PeerFinder.FindAllPeersAsync();
-			PeerInformation peer = (from p in peers where p.DisplayName == "EV3" select p).FirstOrDefault();
+            PeerInformation peer = (from p in peers where p.DisplayName == _deviceName select p).FirstOrDefault();
 			if(peer == null)
-				throw new Exception("EV3 Brick not found");
+				throw new Exception(_deviceName + " Brick not found");
 
 			_socket = new StreamSocket();
 			await _socket.ConnectAsync(peer.HostName, "1");
