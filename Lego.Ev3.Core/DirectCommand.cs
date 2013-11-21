@@ -264,7 +264,7 @@ namespace Lego.Ev3.Core
 #else
 		Task
 #endif
-		SetMotorPolarity(OutputPort ports, Polarity polarity)
+		SetMotorPolarityAsync(OutputPort ports, Polarity polarity)
 		{
 			return SetMotorPolarityInternalAsync(ports, polarity)
 #if WINRT
@@ -373,7 +373,7 @@ namespace Lego.Ev3.Core
 #else
 		Task
 #endif
-		ClearAllDevices()
+		ClearAllDevicesAsync()
 		{
 			return ClearAllDevicesAsyncInternal()
 #if WINRT
@@ -393,7 +393,7 @@ namespace Lego.Ev3.Core
 #else
 		Task
 #endif
-		ClearChanges(InputPort port)
+		ClearChangesAsync(InputPort port)
 		{
 			return ClearChangesAsyncInternal(port)
 #if WINRT

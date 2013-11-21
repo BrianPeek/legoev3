@@ -96,7 +96,7 @@ namespace Lego.Ev3.Tester.Wpf
 
 		private async void ClearAll_Click(object sender, RoutedEventArgs e)
 		{
-			await _brick.DirectCommand.ClearAllDevices();
+			await _brick.DirectCommand.ClearAllDevicesAsync();
 		}
 
 		private async void GetFirmwareVersion_Click(object sender, RoutedEventArgs e)
