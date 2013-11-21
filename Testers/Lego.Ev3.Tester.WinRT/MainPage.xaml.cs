@@ -14,26 +14,26 @@ using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Lego.Ev3.Tester.WinRT
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
-    {
+	/// <summary>
+	/// An empty page that can be used on its own or navigated to within a Frame.
+	/// </summary>
+	public sealed partial class MainPage : Page
+	{
 		private Brick _brick;
 
-        public MainPage()
-        {
-            this.InitializeComponent();
-        }
+		public MainPage()
+		{
+			this.InitializeComponent();
+		}
 
-        /// <summary>
-        /// Invoked when this page is about to be displayed in a Frame.
-        /// </summary>
-        /// <param name="e">Event data that describes how this page was reached.  The Parameter
-        /// property is typically used to configure the page.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-        }
+		/// <summary>
+		/// Invoked when this page is about to be displayed in a Frame.
+		/// </summary>
+		/// <param name="e">Event data that describes how this page was reached.  The Parameter
+		/// property is typically used to configure the page.</param>
+		protected override void OnNavigatedTo(NavigationEventArgs e)
+		{
+		}
 
 		private async void Connect_Click(object sender, RoutedEventArgs e)
 		{
@@ -181,7 +181,7 @@ namespace Lego.Ev3.Tester.WinRT
 			IBuffer b = await _brick.BatchCommand.SendCommandAsync();
 			Output.Text = BitConverter.ToString(b.ToArray());
 		}
-    }
+	}
 
 	class KeyValue
 	{

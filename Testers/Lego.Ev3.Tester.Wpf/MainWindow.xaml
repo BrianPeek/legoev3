@@ -32,7 +32,6 @@
 							<Run Text="Index: "/><TextBlock Text="{Binding Key}"/>
 							<Run Text=", Type: "/><TextBlock Text="{Binding Value.Type}"/>
 							<Run Text=", Mode: "/><TextBlock Text="{Binding Value.Mode}"/>
-							<Run Text=", Mode: "/><TextBlock Text="{Binding Value.Format}"/>
 							<Run Text=", SI Value: "/><TextBlock Text="{Binding Value.SIValue}"/>
 							<Run Text=", Raw Value: "/><TextBlock Text="{Binding Value.RawValue}"/>
 							<Run Text=", Pct Value: "/><TextBlock Text="{Binding Value.PercentValue}"/>
