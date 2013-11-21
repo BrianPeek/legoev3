@@ -266,7 +266,7 @@ namespace Lego.Ev3.Core
 #endif
 		SetMotorPolarityAsync(OutputPort ports, Polarity polarity)
 		{
-			return SetMotorPolarityInternalAsync(ports, polarity)
+			return SetMotorPolarityAsyncInternal(ports, polarity)
 #if WINRT
 			.AsAsyncAction()
 #endif
@@ -963,7 +963,7 @@ Task<bool>
 			await _brick.SendCommandAsyncInternal(c);
 		}
 
-		internal async Task SetMotorPolarityInternalAsync(OutputPort ports, Polarity polarity)
+		internal async Task SetMotorPolarityAsyncInternal(OutputPort ports, Polarity polarity)
 		{
 			Command c = new Command(CommandType.DirectNoReply);
 			c.SetMotorPolarity(ports, polarity);
