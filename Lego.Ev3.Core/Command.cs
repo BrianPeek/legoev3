@@ -887,6 +887,8 @@ namespace Lego.Ev3.Core
 				await _brick.SendCommandAsyncInternal(this);
 				byte[] response = Response.Data;
 				Initialize(CommandType.DirectNoReply);
+				if(response == null)
+					return null;
 				return response.AsBuffer();
 			});
 #else
