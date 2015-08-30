@@ -20,8 +20,8 @@ namespace Lego.Ev3.Desktop
 		public event EventHandler<ReportReceivedEventArgs> ReportReceived;
 
 		// our brick VID and PID
-        private const UInt16 VID = 0x0694;
-        private const UInt16 PID = 0x0005;
+		private const UInt16 VID = 0x0694;
+		private const UInt16 PID = 0x0005;
 
 		// full-size report
 		private byte[] _inputReport;
@@ -88,16 +88,17 @@ namespace Lego.Ev3.Desktop
 		/// </summary>
 		/// <param name="data">Byte array to send to the EV3 brick.</param>
 		/// <returns></returns>
-		public Task WriteAsync(byte[] data)
+		public async Task WriteAsync(byte[] data)
 		{
 			if(_stream != null)
 			{
 				data.CopyTo(_outputReport, 1);
-				return _stream.WriteAsync(_outputReport, 0, _outputReport.Length);
+				await _stream.WriteAsync(_outputReport, 0, _outputReport.Length);
+				_stream.Flush();
 			}
 
 			// invalid stream, bail out, but don't tank who is awaiting us
-			return Task.FromResult(false);
+			await Task.FromResult(false);
 		}
 
 		internal void FindEv3()
