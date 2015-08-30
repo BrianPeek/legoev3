@@ -66,6 +66,7 @@ namespace Lego.Ev3.Core
 		OutputSpeed = 0xa5,
 		OutputStart = 0xa6,
 		OutputPolarity = 0xa7,
+		OutputReady = 0xaa,
 		OutputStepPower = 0xac,
 		OutputTimePower = 0xad,
 		OutputStepSpeed = 0xae,

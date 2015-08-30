@@ -870,6 +870,18 @@ namespace Lego.Ev3.Core
 		}
 
 		/// <summary>
+		/// Wait for the specificed output port(s) to be ready for the next command
+		/// </summary>
+		/// <param name="ports">Port(s) to wait for</param>
+		/// <returns></returns>
+		public void OutputReady(OutputPort ports)
+		{
+			AddOpcode(Opcode.OutputReady);
+			AddParameter(0x00);			// layer
+			AddParameter((byte)ports);	// ports
+		}
+
+		/// <summary>
 		/// End and send a Command to the EV3 brick.
 		/// </summary>
 		/// <returns>A byte array containing the response from the brick, if any.</returns>

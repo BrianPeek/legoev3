@@ -174,7 +174,9 @@ namespace Lego.Ev3.Core
 		/// </summary>
 		public void Disconnect()
 		{
-			_tokenSource.Cancel();
+			if(_tokenSource != null)
+				_tokenSource.Cancel();
+
 			_comm.Disconnect();
 		}
 

@@ -918,6 +918,26 @@ Task<bool>
 			;
 		}
 
+		/// <summary>
+		/// Wait for the specificed output port(s) to be ready for the next command
+		/// </summary>
+		/// <param name="ports">Port(s) to wait for</param>
+		/// <returns></returns>
+		public 
+#if WINRT
+		IAsyncAction
+#else
+		Task
+#endif 
+		OutputReadyAsync(OutputPort ports)
+		{
+			return OutputReadyAsyncInternal(ports)
+#if WINRT
+			.AsAsyncAction()
+#endif
+			;
+		}
+
 		internal async Task TurnMotorAtPowerAsyncInternal(OutputPort ports, int power)
 		{
 			Command c = new Command(CommandType.DirectNoReply);
@@ -1192,6 +1212,13 @@ Task<bool>
 			await _brick.SendCommandAsyncInternal(c);
 			int index = Array.IndexOf(c.Response.Data, (byte)0);
 			return Encoding.UTF8.GetString(c.Response.Data, 0, index);
+		}
+
+		internal async Task OutputReadyAsyncInternal(OutputPort ports)
+		{
+			Command c = new Command(CommandType.DirectNoReply);
+			c.OutputReady(ports);
+			await _brick.SendCommandAsyncInternal(c);
 		}
 	}
 }
