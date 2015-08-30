@@ -4,4 +4,7 @@ A .NET API for the LEGO MINDSTORMS EV3 brick usable from desktop, Windows Phone 
 
 This project provides libraries that are usable from the Windows desktop, Windows Phone 8, and WinRT (via .NET, WinJS and C++), along with full source code.
 
-Check out the [Getting Started](https://channel9.msdn.com/posts/LEGO-Mindstorms-EV3-API) video on Channel9 for more info!
+Important links:
+* [Downloads](https://github.com/BrianPeek/legoev3/releases)
+* [Docs](https://github.com/BrianPeek/legoev3/wiki)
+* [Getting Started video](https://channel9.msdn.com/posts/LEGO-Mindstorms-EV3-API)
