@@ -27,23 +27,23 @@ namespace Lego.Ev3.WinRT
 		private DataReader _reader;
 		private CancellationTokenSource _tokenSource;
 
-        private readonly string _deviceName;
+		private readonly string _deviceName = "EV3";
 
-        /// <summary>
-        /// Create a new NetworkCommunication object
-        /// </summary>
-        /// <param name="device">Devicename of the EV3 brick</param>
-        public BluetoothCommunication(string device)
-        {
-            _deviceName = device;
-        }
-        /// <summary>
-        /// Create a new NetworkCommunication object
-        /// </summary>
-        public BluetoothCommunication()
-        {
-            _deviceName = "EV3";
-        }
+		/// <summary>
+		/// Create a new BluetoothCommunication object
+		/// </summary>
+		public BluetoothCommunication()
+		{
+		}
+
+		/// <summary>
+		/// Create a new BluetoothCommunication object
+		/// </summary>
+		/// <param name="device">Devicename of the EV3 brick</param>
+		public BluetoothCommunication(string device)
+		{
+			_deviceName = device;
+		}
 
 		/// <summary>
 		/// Connect to the EV3 brick.
@@ -60,9 +60,9 @@ namespace Lego.Ev3.WinRT
 
 			string selector = RfcommDeviceService.GetDeviceSelector(RfcommServiceId.SerialPort);
 			DeviceInformationCollection devices = await DeviceInformation.FindAllAsync(selector);
-            DeviceInformation device = (from d in devices where d.Name == _deviceName select d).FirstOrDefault();
+			DeviceInformation device = (from d in devices where d.Name == _deviceName select d).FirstOrDefault();
 			if(device == null)
-				throw new Exception("EV3 not found.");
+				throw new Exception("LEGO EV3 brick named '" + _deviceName + "' not found.");
 
 			RfcommDeviceService service = await RfcommDeviceService.FromIdAsync(device.Id);
 			if(service == null)

@@ -31,8 +31,8 @@
 			</StackPanel>
 			<StackPanel Width="700">
 				<TextBox x:Name="Output"/>
-				<ListBox x:Name="InputPorts" ItemsSource="{Binding}" Height="336">
-					<ListBox.ItemTemplate>
+				<ItemsControl x:Name="InputPorts" ItemsSource="{Binding}" Height="336">
+					<ItemsControl.ItemTemplate>
 						<DataTemplate>
 							<StackPanel Orientation="Horizontal">
 							<TextBlock>
@@ -45,8 +45,8 @@
 							</TextBlock>
 						</StackPanel>
 						</DataTemplate>
-					</ListBox.ItemTemplate>
-				</ListBox>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
 				<TextBlock x:Name="Buttons">
 					<Run Text="Up: "/><Run Text="{Binding Up}"/><LineBreak/>
 					<Run Text="Down: "/><Run Text="{Binding Down}"/><LineBreak/>

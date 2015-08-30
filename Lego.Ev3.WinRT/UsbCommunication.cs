@@ -20,10 +20,10 @@ namespace Lego.Ev3.WinRT
 		/// </summary>
 		public event EventHandler<ReportReceivedEventArgs> ReportReceived;
 
-        private const UInt16 VID = 0x0694;
-        private const UInt16 PID = 0x0005;
-        private const UInt16 UsagePage = 0xff00;
-        private const UInt16 UsageId = 0x0001;
+		private const UInt16 VID = 0x0694;
+		private const UInt16 PID = 0x0005;
+		private const UInt16 UsagePage = 0xff00;
+		private const UInt16 UsageId = 0x0001;
 
 		private HidDevice _hidDevice;
 
@@ -38,7 +38,7 @@ namespace Lego.Ev3.WinRT
 
 		private async Task ConnectAsyncInternal()
 		{
-           	string selector = HidDevice.GetDeviceSelector(UsagePage, UsageId, VID, PID);
+			string selector = HidDevice.GetDeviceSelector(UsagePage, UsageId, VID, PID);
 			DeviceInformationCollection devices = await DeviceInformation.FindAllAsync(selector);
 			DeviceInformation brick = devices.FirstOrDefault();
 			if(brick == null)
@@ -87,16 +87,16 @@ namespace Lego.Ev3.WinRT
 
 		private void HidDeviceInputReportReceived(HidDevice sender, HidInputReportReceivedEventArgs args)
 		{
-            byte[] data = args.Report.Data.ToArray();
+			byte[] data = args.Report.Data.ToArray();
 
-            short size = (short)(data[1] | data[2] << 8);
+			short size = (short)(data[1] | data[2] << 8);
 			if(size == 0)
 				return;
 
-            byte[] report = new byte[size];
-            Array.Copy(data, 3, report, 0, size);
-            if (ReportReceived != null)
-                ReportReceived(this, new ReportReceivedEventArgs { Report = report });
-        }
+			byte[] report = new byte[size];
+			Array.Copy(data, 3, report, 0, size);
+			if (ReportReceived != null)
+				ReportReceived(this, new ReportReceivedEventArgs { Report = report });
+		}
 	}
 }

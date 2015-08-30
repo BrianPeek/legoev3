@@ -1,53 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" 
-				 xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-
-  <Identity Name="91748722-68bb-4a3a-b872-b7de7f7239e4"
-            Publisher="CN=crutkas"
-            Version="1.0.0.0" />
-
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="91748722-68bb-4a3a-b872-b7de7f7239e4" Publisher="CN=Brian" Version="1.0.0.0" />
   <Properties>
     <DisplayName>SampleApp (WinRT)</DisplayName>
-    <PublisherDisplayName>crutkas</PublisherDisplayName>
+    <PublisherDisplayName>Brian</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-
   <Prerequisites>
     <OSMinVersion>6.3.0</OSMinVersion>
     <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
   </Prerequisites>
-
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-        Executable="$targetnametoken$.exe"
-        EntryPoint="SampleApp.App">
-        <m2:VisualElements
-            DisplayName="SampleApp (WinRT)"
-            Square150x150Logo="Assets\Logo.png"
-            Square30x30Logo="Assets\SmallLogo.png"
-            Description="SampleApp (WinRT)"
-            ForegroundText="light"
-            BackgroundColor="#464646">
-            <m2:SplashScreen Image="Assets\SplashScreen.png" />
-        </m2:VisualElements>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="SampleApp.App">
+      <m2:VisualElements DisplayName="SampleApp (WinRT)" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="SampleApp (WinRT)" ForegroundText="light" BackgroundColor="#464646">
+        <m2:SplashScreen Image="Assets\SplashScreen.png" />
+      </m2:VisualElements>
     </Application>
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
     <Capability Name="privateNetworkClientServer" />
-	<m2:DeviceCapability Name="bluetooth.rfcomm">
-		<m2:Device Id="any">
-			<m2:Function Type="name:serialPort" />
-		</m2:Device>
-	</m2:DeviceCapability>
-	<m2:DeviceCapability Name="humaninterfacedevice">
-		<m2:Device Id="vidpid:0694 0005">
-			<m2:Function Type="usage:ff00 0001" />
-		</m2:Device>
-	</m2:DeviceCapability>
+    <m2:DeviceCapability Name="bluetooth.rfcomm">
+      <m2:Device Id="any">
+        <m2:Function Type="name:serialPort" />
+      </m2:Device>
+    </m2:DeviceCapability>
+    <m2:DeviceCapability Name="humaninterfacedevice">
+      <m2:Device Id="vidpid:0694 0005">
+        <m2:Function Type="usage:ff00 0001" />
+      </m2:Device>
+    </m2:DeviceCapability>
   </Capabilities>
 </Package>

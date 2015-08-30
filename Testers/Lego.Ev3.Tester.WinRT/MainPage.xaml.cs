@@ -168,6 +168,10 @@ namespace Lego.Ev3.Tester.WinRT
 			_brick.BatchCommand.PlayTone(2, 1000, 400);
 			_brick.BatchCommand.DrawCircle(Color.Foreground, 20, 20, 20, true);
 			_brick.BatchCommand.UpdateUI();
+			_brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 20, 2000, false);
+			_brick.BatchCommand.OutputReady(OutputPort.A);
+			_brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 50, 1000, false);
+			_brick.BatchCommand.OutputReady(OutputPort.A);
 			await _brick.BatchCommand.SendCommandAsync();
 		}
 
