@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/output" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ports" />
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView1">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <Button
+                android:text="Connect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/connect" />
+            <Button
+                android:text="Disconnect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/disconnect" />
+            <Button
+                android:text="Play Tone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/playTone" />
+            <Button
+                android:text="Get FW Version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/getFwVersion" />
+            <Button
+                android:text="Turn Motor at Power"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/turnMotorAtPower" />
+            <Button
+                android:text="Turn Motor at Speed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/turnMotorAtSpeed" />
+            <Button
+                android:text="Step Motor at Power"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/stepMotorAtPower" />
+            <Button
+                android:text="Step Motor at Speed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/stepMotorAtSpeed" />
+            <Button
+                android:text="Time Motor at Power"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/timeMotorAtPower" />
+            <Button
+                android:text="Time Motor at Speed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/timeMotorAtSpeed" />
+            <Button
+                android:text="Stop Motor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/stopMotor" />
+            <Button
+                android:text="Set LED"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/setLed" />
+            <Button
+                android:text="Play Sound"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/playSound" />
+            <Button
+                android:text="Draw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/draw" />
+            <Button
+                android:text="Batch with No Reply"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/batchNoReply" />
+            <Button
+                android:text="Batch with Reply"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/batchReply" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

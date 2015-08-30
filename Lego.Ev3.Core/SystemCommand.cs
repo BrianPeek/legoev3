@@ -48,6 +48,7 @@ namespace Lego.Ev3.Core
 			;
 		}
 
+#if !ANDROID
 		/// <summary>
 		/// Copy a local file to the EV3 brick
 		/// </summary>
@@ -69,6 +70,7 @@ namespace Lego.Ev3.Core
 #endif
 			;
 		}
+#endif
 
 		/// <summary>
 		/// Create a directory on the EV3 brick
@@ -195,6 +197,11 @@ namespace Lego.Ev3.Core
 			await stream.ReadAsync(data, 0, data.Length);
 
 			return data;
+		}
+#elif ANDROID
+		private Task<byte[]> GetFileContents(string localPath)
+		{
+			throw new NotImplementedException("On Android, please use WriteFileAsync instead of CopyFileAsync");
 		}
 #else
 		private Task<byte[]> GetFileContents(string localPath)
