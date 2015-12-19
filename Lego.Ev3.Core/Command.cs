@@ -496,6 +496,9 @@ namespace Lego.Ev3.Core
 		/// <param name="filename">Filename on the Brick of the sound to play</param>
 		public void PlaySound(int volume, string filename)
 		{
+			if(volume < 0 || volume > 100)
+				throw new ArgumentException("Volume must be between 0 and 100", "volume");
+
 			AddOpcode(Opcode.Sound_Play);
 			AddParameter((byte)volume);
 			AddParameter(filename);
